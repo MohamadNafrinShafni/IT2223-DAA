@@ -1,0 +1,65 @@
+function index = binarySearch(arr, target)
+    left = 1;
+    right = length(arr);
+    
+    while left <= right
+        mid = floor((left + right) / 2);
+        
+        if arr(mid) == target
+            index = mid; % Target found
+            return;
+        elseif arr(mid) < target
+            left = mid + 1; % Search in the right half
+        else
+            right = mid - 1; % Search in the left half
+        end
+    end
+    
+    index = -1; % Target not found
+end
+
+% Example usage:
+arr = [3,6,8,12,14,17,25,29,31,36,42,47,53,55,62];
+target = 29;
+index = binarySearch(arr, target);
+
+if index ~= -1
+    fprintf('Element found at index %d\n', index);
+else
+    fprintf('Element not found\n');
+end
+
+****************************************************************************
+
+arr = [3,6,8,12,14,17,25,29,31,36,42,47,53,55,62];
+target = 42;
+tic; % Start timer
+
+left = 1;
+right = length(arr);
+found = false;
+
+while left <= right
+    mid = floor((left + right) / 2);
+    
+    if arr(mid) == target
+        fprintf('The target index is %d\n', mid);
+        found = true;
+        break;
+    elseif arr(mid) < target
+        left = mid + 1; % Search in right half
+    else
+        right = mid - 1; % Search in left half
+    end
+end
+
+if ~found
+    fprintf('The target is not found\n');
+end
+
+elapsedTime = toc; % Stop timer
+fprintf('Elapsed time: %f seconds\n', elapsedTime);
+
+o/t=>
+The target index is 11
+Elapsed time: 0.001938 seconds

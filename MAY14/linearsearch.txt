@@ -1,0 +1,66 @@
+function index = linearSearch(arr, target)
+    index = -1; % Default value if target is not found
+    for i = 1:length(arr)
+        if arr(i) == target
+            index = i; % Store the index where the target is found
+            return;
+        end
+    end
+end
+
+% Example usage:
+arr = [10, 20, 30, 40, 50];
+target = 30;
+index = linearSearch(arr, target);
+
+if index ~= -1
+    fprintf('Element found at index %d\n', index);
+else
+    fprintf('Element not found\n');
+end
+
+************************************************
+
+arr = [3,5,7,9,11,13];
+target = 9;
+n = length(arr);
+found = false; % Flag to track if the target is found
+
+for i = 1:n
+    if arr(i) == target
+        fprintf('The target index is %d\n', i);
+        found = true; % Mark as found
+        break; % Exit the loop
+    end
+end
+
+if ~found
+    fprintf('The target is not found\n');
+end
+*****************************************************
+
+[3,6,8,12,14,17,25,29,31,36,42,47,53,55,62]
+
+arr = [3,6,8,12,14,17,25,29,31,36,42,47,53,55,62];
+target = 90;
+n = length(arr);
+tic;
+found = false; % Flag to track if the target is found
+
+for i = 1:n
+    if arr(i) == target
+        fprintf('The target index is %d\n', i);
+        found = true; % Mark as found
+        break; % Exit the loop
+    end
+end
+
+if ~found
+    fprintf('The target is not found\n');
+end
+
+elapsedTime=toc;
+fprintf('elapsed time:%fseconds\n',elapsedTime);
+
+o/t=>The target is not found
+elapsed time:0.001117seconds
