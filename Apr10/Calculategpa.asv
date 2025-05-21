@@ -1,0 +1,35 @@
+marks1 =input('enter your marks1:');
+marks2 =input('enter your marks2:');
+marks3 =input('enter your marks3:');
+marks4 =input('enter your marks4:');
+marks5 =input('enter your marks5:');
+marks6 =input('enter your marks6:');
+gpa = zeros(1,5);
+marks = zeros(1,5);
+for i = 1:5
+    marks(i)=input(['Enter marks for subject'])
+
+    if marks(i)>=90 && marks(i)<=100
+        disp('Grade A')
+        gpa(i)=4.0
+
+
+elseif marks(i)>=80
+    disp('B')
+    gpa(i)=4.0
+
+elseif marks(i)>=70
+    disp('B')
+    gpa(i)=3.0
+
+elseif marks>=60
+    disp('C')
+    gpa(i)=2.0
+
+elseif marks(i)>=50
+    disp('D')
+    gpa(i)=1.0
+
+else
+    disp('E')
+end
