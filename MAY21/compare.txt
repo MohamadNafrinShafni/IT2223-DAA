@@ -1,0 +1,79 @@
+%CREATE ARRAY WITH 1000 NUMBERS 
+%use tic/toc to measure time for
+  %linear search
+  %Binary search
+%compare results  
+
+
+
+array = 1:1000;
+target = 900;
+
+tStartLinear = tic;
+foundIndexLinear = -1;
+for i = 1:length(array)
+    if array(i) == target
+        foundIndexLinear = i;
+        break;
+    end
+end
+elapsedLinear = toc(tStartLinear);
+fprintf('Linear Search: Found at index %d in %f seconds.\n', foundIndexLinear, elapsedLinear);
+
+tStartBinary = tic;
+left = 1;
+right = length(array);
+foundIndexBinary = -1;
+while left <= right
+    mid = floor((left + right) / 2);
+    if array(mid) == target
+        foundIndexBinary = mid;
+        break;
+    elseif array(mid) < target
+        left = mid + 1;
+    else
+        right = mid - 1;
+    end
+end
+elapsedBinary = toc(tStartBinary);
+fprintf('Binary Search: Found at index %d in %f seconds.\n', foundIndexBinary, elapsedBinary);
+
+fprintf('\nComparison:\n');
+fprintf('Linear Search Elapsed Time: %f seconds\n', elapsedLinear);
+fprintf('Binary Search Elapsed Time: %f seconds\n', elapsedBinary);
+
+OUTPUT:
+Linear Search: Found at index 900 in 0.000555 seconds.
+Binary Search: Found at index 900 in 0.002614 seconds.
+
+Comparison:
+Linear Search Elapsed Time: 0.000555 seconds
+Binary Search Elapsed Time: 0.002614 seconds
+
+********Selection sort********
+
+array = [64, 25, 12, 22, 11];
+n = length(array);
+
+for i = 1:n-1
+    min_idx = i;
+    for j = i+1:n
+        if array(j) < array(min_idx)
+            min_idx = j;
+        end
+    end
+    if min_idx ~= i
+        temp = array(i);
+        array(i) = array(min_idx);
+        array(min_idx) = temp;
+    end
+end
+
+disp('Sorted Array:');
+disp(array);
+
+OUTPUT:
+Sorted Array:
+    11    12    22    25    64
+
+
