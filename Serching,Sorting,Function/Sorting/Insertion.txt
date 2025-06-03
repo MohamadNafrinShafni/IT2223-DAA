@@ -1,0 +1,25 @@
+%insertion sort
+
+arr = [9, 5, 3, 8, 2, 6, 1, 7, 4];
+
+% Get the length of the array
+n = length(arr);
+
+% Insertion Sort algorithm
+for i = 2:n
+    key = arr(i);
+    j = i - 1;
+    
+    % Move elements of arr[0..i-1], that are greater than key,
+    % to one position ahead of their current position
+    while j > 0 && arr(j) > key
+        arr(j + 1) = arr(j);
+        j = j - 1;
+    end
+    
+    arr(j + 1) = key;
+end
+
+% Display sorted array
+disp('Sorted array:');
+disp(arr);
